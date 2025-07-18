@@ -1,0 +1,11 @@
+# 5. In Vivado, how would you generate a post-implementation timing report and export only the failing paths?
+
+# First, open the implemented design
+open_run impl_1
+
+# Generate the timing report for paths with negative slack (failing paths)
+report_timing \
+  -max_paths 100 \
+  -delay_type max \
+  -slack_lesser_than 0 \
+  -file failing_paths.rpt
